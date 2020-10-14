@@ -13,3 +13,9 @@ You have a couple of friends who are getting married soon and they asked to play
 5. - [ ] Photos must be stored on AWS S3.
 
 🎯 The project needs to be developed in python using any framework of your choice. 🎯
+
+## Run the test
+
+```sh
+python pytest
+```
