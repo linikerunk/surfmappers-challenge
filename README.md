@@ -1,14 +1,15 @@
 # Surfmappers Upload Image
-```
-Apenas fotos que foram aprovadas devem ser visível na página da galeria que será visível para todos.
+You have a couple of friends who are getting married soon and they asked to play with the trainers. They want to create a photo gallery where everyone can upload photos taken during the wedding.
 
-As fotos precisam ser armazenadas na AWS S3.
 
-O projeto precisa ser desenvolvido em python utilizando qualquer framework de sua escolha.
+1. - [ ] a photo upload screen
 
-Estarei observando qualidade e organização do código, arquitetura da solução, ocorrência de bugs, qualidade da interface, responsividade e a robustez da solução em geral.
+2. - [ ] a screen to display a gallery
 
-Para submeter o teste você deve disponibilizar o código em algum repositório público e hospedar o projeto em algum servidor para que eu possa testar.
+3. - [ ] a screen to approve the photos to view in the gallery.
 
-O tempo para submissão do teste são três dias úteis. Se por acaso você precisar de mais me avisa tá.
-``` 
+4. - [ ] Only photos that have been approved should be visible on the gallery page that will be visible to everyone.
+
+5. - [ ] Photos must be stored on AWS S3.
+
+🎯 The project needs to be developed in python using any framework of your choice.
