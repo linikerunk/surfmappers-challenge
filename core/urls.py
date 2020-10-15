@@ -1,9 +1,10 @@
-
 from django.urls import path
+from .views import GaleryView, UploadImageCreateView 
 
 
 app_name = 'core'
 
 urlpatterns = [
-    #path('', IndexView.as_view(), name="index"),
+    path('', GaleryView.as_view(), name="galery"),
+    path('upload/', UploadImageCreateView.as_view(), name="upload_image"),
 ]

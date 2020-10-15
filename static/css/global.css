@@ -3,15 +3,15 @@
     padding: 0;
     box-sizing: border-box;
     outline: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
-    background:  #FFF;
+    background-image: url("static/img/background.jpg")  50% 0 no-repeat fixed;
     -webkit-font-smoothing: antialiased;
 }
 
 body, input, button {
-    font-family: 'Roboto Slab', serif;
     font-size: 16px;
 }
 
@@ -25,21 +25,41 @@ button {
 
 a {
     color: black;
-    font-size: 20px;
+    font-size: 18px;
 }
+
+p {
+    font-size: 20px;
+    font-weight: 400;
+}
+
 
 thead#custom-thead {
     color: black;
     background-color:  #6FBFBF;
 }
 
+textarea {   /* for all text* area elements */
+  resize: none;
+}
+
+input[type='checkbox'] {
+    width:22px;
+    height:22px;
+    border-radius:5px;
+    border:2px solid black;
+}
+
+#approved_text{
+    font-size: 20px;
+    font-weight: 400;
+}
 
 #footer {
     position: fixed;
     bottom: 0;
     padding-bottom: 80px;
     z-index: 1055;
-    max-height: 8%;
 }
 
 th, td {

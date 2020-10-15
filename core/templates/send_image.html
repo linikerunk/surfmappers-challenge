@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}Enviar Imagem{% endblock %}
+
+{% block conteudo %}
+<div class="row">
+    <div class="col-md-12">
+    <h2 id="weeding_title">👰 Adicione sua foto de casamento 🤵 </h2>
+    <hr>
+    <form method="POST"  enctype="multipart/form-data"
+    accept-charset="UTF-8" action=""> <!-- redirect to the view-->
+    {% csrf_token %}
+    <div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label><p class="mb-0"> Nome da foto :  </p></label>
+            <input type="text" class="form-control" placeholder="Digite o nome da foto que vc deseja salvar">
+            <small id="emailHelp" class="form-text text-muted">Digite um nome para esse foto onde será listada em ordem alfabetica.</small>
+          </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label><p class="mb-0"> Insira a foto aqui :  </p></label>
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="customFile">
+                <label class="custom-file-label" for="customFile">Clique aqui para adicionar a foto</label>
+              </div>
+          </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label><p class="mb-0"> Descrição da foto :  </p></label>
+            <textarea class="form-control" rows="3"
+            placeholder="Descreva um momento para essa foto."></textarea>
+          </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label mb-1 ml-2"><strong id="approved_text">Deseja que essa imagem apareça na galeria de fotos ? </strong></label>
+              </div>
+        </div>
+    </div>
+        <div class="col-md-12">
+            <button class="btn btn-warning pr-5 pl-5 w-25" type="reset">Limpar</button>
+            <button class="btn btn-primary pr-5 pl-5 w-25" type="submit">Enviar foto</button>
+        </div>
+
+    </div> <!-- ./ second row..-->
+
+    
+
+</div> <!-- ./col-md-12 -->
+</div> <!-- ./row -->
+
+{% endblock %}
