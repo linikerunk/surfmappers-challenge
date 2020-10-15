@@ -6,8 +6,15 @@
 
 
 <script>
-$("#your-input-type-file-ID").fileinput({
+$(".image").fileinput({
     'showUpload': false
 });
 </script>
+
+<script>
+    var message_ele = document.getElementById("message_container");
+    setTimeout(function () {
+      message_ele.style.display = "none";
+    }, 4000);
+  </script>
 

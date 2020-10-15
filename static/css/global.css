@@ -30,7 +30,6 @@ a {
 
 p {
     font-size: 20px;
-    font-weight: 400;
 }
 
 
@@ -44,14 +43,30 @@ textarea {   /* for all text* area elements */
 }
 
 input[type='checkbox'] {
-    width:22px;
-    height:22px;
+    width:20px;
+    height:20px;
     border-radius:5px;
     border:2px solid black;
 }
 
+.card {
+    border: 1px outset;
+    text-shadow: 2px 2px 5px gray;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 
+    0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.nav-link {
+    font-weight: 900;
+}
+
 #approved_text{
     font-size: 20px;
+}
+
+#bio-text{
+    font-size: 14px;
+    color: #253840;
     font-weight: 400;
 }
 

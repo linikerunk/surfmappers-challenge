@@ -4,5 +4,28 @@
 {% block titulo %} Galeria SurfMappers{% endblock %}
 
 {% block conteudo %}
-<p> está tudo certinho</p>
+<div class="row mb-5">
+    <div class="col-md-12">
+    <h2 id="galery_title">📸 Galeria de fotos  Marina & Jorge 📸 </h2>
+    <hr>
+    <div class="row">
+
+    {% for photo in photos %}
+    <div class="col-md-3 mt-4">
+        <div class="card">
+            <img src="{{ photo.get_image_url }}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h6 class="card-title">Nome : {{ photo.name }}</h6>
+              <small id="bio-text">{{ photo.description }}</small> <br>
+              <small>Data : {{ photo.image_date }}</small>
+            </div>
+          </div>
+    </div>
+    {% endfor %}
+
+    </div> <!-- ./ second row..-->
+
+</div> <!-- ./col-md-12 -->
+</div> <!-- ./row -->
+
 {% endblock %}

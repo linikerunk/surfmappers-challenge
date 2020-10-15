@@ -1,4 +1,5 @@
 from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse
 from django.views.generic import ListView, CreateView
 from django.contrib import messages
 
@@ -31,10 +32,17 @@ class UploadImageCreateView(CreateView):
             # Call parent form_valid to create model record object
             super(UploadImageCreateView,self).form_valid(form)
             # Add custom success message   
+            messages.success(self.request, "Imagem adicionada com sucesso!")
             return HttpResponseRedirect(self.get_success_url())
+        # Form is invalid
+        # Set object to None, since class-based view expects model record object
+        self.object = None
+        messages.error(self.request, f"Ops... você precisa adicionar uma foto. ")
+        # Return class-based view form_invalid to generate form with errors
+        return self.form_invalid(form)
 
     def get_success_url(self, *args):
-        messages.success(self.request, "Imagem adicionada com sucesso!")
+        return reverse('core:upload_image')
 
 
 

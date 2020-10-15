@@ -9,8 +9,8 @@ class UploadImageForm(forms.ModelForm):
     '''This class references a form before to post in the body.'''
     name = forms.CharField(max_length=150)
     description = forms.CharField(widget=forms.Textarea )
-    approved = forms.BooleanField(label="New Geeks Field")
+    image = forms.FileInput()
 
     class Meta:
         model = GaleryPhoto
-        fields = ['name', 'description', 'image', 'approved']
+        fields = ['name', 'description', 'image']
