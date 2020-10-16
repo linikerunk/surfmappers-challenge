@@ -10,7 +10,7 @@ class GaleryPhoto(models.Model):
     description = models.TextField("Descrição", blank=True) 
     image_date =  models.DateField("Date", default=datetime.date.today)
     image = StdImageField("Imagem", variations={
-                         'thumbnail': {'width': 400, 'height': 350, "crop": True}})
+                         'thumbnail': {'width': 350, 'height': 250, "crop": True}})
     approved = models.BooleanField("Aprovado", default=False, null=True, blank=True)
     
     class Meta:
