@@ -1,11 +1,13 @@
 from django.http import HttpResponse, HttpResponseRedirect
-from django.urls import reverse
-from django.views.generic.edit import FormMixin
-from django.views.generic import ListView, CreateView
+from django.urls import reverse, reverse_lazy
+from django.views.generic.edit import FormView
+from django.views.generic import ListView, CreateView, UpdateView
 from django.contrib import messages
-
-from .forms import UploadImageForm, UploadImageManageForm
 from .models import GaleryPhoto
+from .forms import ( 
+UploadImageForm,
+UpdateImageForm,
+)
 
 
 class GaleryView(ListView):
@@ -47,34 +49,24 @@ class UploadImageCreateView(CreateView):
         return reverse('core:upload_image')
 
 
-class ManageListImageListView(GaleryView, FormMixin):
+class ManageListImageListView(GaleryView):
     """List all photos to select the photos how must be on the Galery"""
-    form_class = UploadImageManageForm
     template_name = 'manage_galery.html'
 
-    def get(self, request, *args, **kwargs):
-        # From ProcessFormMixin
-        form_class = self.get_form_class()
-        self.form = self.get_form(form_class)
-
-        # From BaseListView
-        self.object_list = self.get_queryset()
-
-        context = self.get_context_data(object_list=self.object_list, form=self.form)
-        return self.render_to_response(context)
-
-    def post(self, request, *args, **kwargs):
-        form = self.get_form()
-        if form.is_valid():
-            super(ManageListImageListView, self).form_valid(form)
-            messages.success(self.request, "Alterações realizadas com sucesso")
-            return HttpResponseRedirect(self.get_success_url())
-        self.object = None
-        messages.error(self.request, f" {form.errors}")
-        return self.form_invalid(form)
-    
     def get_context_data(self, **kwargs):
         context = super(ManageListImageListView, self).get_context_data(**kwargs)
         context['photos'] = GaleryPhoto.objects.all()
         return context
 
+
+class UpdateImageUpdateView(UpdateView):
+    model = GaleryPhoto
+    form_class = UpdateImageForm 
+    template_name = "approved_image.html"
+    success_url = reverse_lazy('core:galery')
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        return super().post(request, *args, **kwargs)
+
+    

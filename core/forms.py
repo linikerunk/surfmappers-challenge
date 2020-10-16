@@ -1,10 +1,9 @@
 from django import forms
 from django.contrib.auth import get_user_model
 from django.forms import ModelForm
+# from django.forms import formset_factory
 from .models import GaleryPhoto
 
-CHOICES=[('Aceitar', True),
-         ('Negar', False)]
 
 class UploadImageForm(forms.ModelForm):
     '''This class references a form before to post in the body,
@@ -18,11 +17,9 @@ class UploadImageForm(forms.ModelForm):
         fields = ['name', 'description', 'image']
 
 
-class UploadImageManageForm(forms.ModelForm):
-    '''This class references a action when user want left free a image'''
-    approved = forms.CharField(widget=forms.RadioSelect(
-        choices=CHOICES))
-    
+class UpdateImageForm(forms.ModelForm):
+    '''This class references a action when user want left free a image'''   
+    approved = forms.BooleanField(label="", initial=False, required=False)
 
     class Meta:
         model = GaleryPhoto

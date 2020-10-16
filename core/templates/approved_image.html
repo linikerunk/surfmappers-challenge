@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}Aprovar Imagem{% endblock %}
+
+{% block conteudo %}
+<form action="{% url 'core:approval_image' object.id %}" method="post">
+{% csrf_token %}
+<div class="row">
+<div class="offset-md-2 col-md-10">
+    <div class="row">
+    <div class="class-md-5">
+    <img src="{{ object.image.thumbnail.url }}" class="img-fluid" id="wrap-image" alt="Card image top">
+    </div>
+    <div class="class-md-6" id="info-image">
+    <p class="lead ml-3 font-weight-bold">Nome : <small> {{ object.name }}</small></p>
+    <p class="lead ml-3 font-weight-bold">Descrição : <small> {{ object.description }}</small> </p>
+    <p class="lead ml-3 mb-0 font-weight-bold">Aprovar foto ? <span class="m-2"> {{ form }}</span> </p> 
+    <small class="m-3">Clique na box caso queira aprovar a foto</small> <br>
+    <a class="btn btn-warning ml-3 mt-3 mb-5 pr-4 pl-4" style="color: #fff;"
+     href="{% url 'core:manage_list' %}"> Voltar</a>
+    <button class="btn btn-default mt-3 mr-3 mb-5" type="submit">Salvar Alteração</button>
+</div>
+    </div>
+    
+
+</div>
+</div> 
+</form>
+{% endblock %}

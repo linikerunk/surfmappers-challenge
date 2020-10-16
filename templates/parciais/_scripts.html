@@ -6,15 +6,16 @@
 
 
 <script>
-$(".image").fileinput({
-    'showUpload': false
-});
-</script>
-
-<script>
     var message_ele = document.getElementById("message_container");
     setTimeout(function () {
       message_ele.style.display = "none";
     }, 4000);
   </script>
 
+<script>
+  url = window.location.href.split('/')[3]
+  $(`#nav-${url}`).addClass('active')
+  if (url == "aprovacao"){
+    $("#nav-gerenciamento").addClass('active')
+  }
+</script>

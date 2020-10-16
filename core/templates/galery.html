@@ -13,7 +13,7 @@
     {% for photo in photos %}
     <div class="col-md-3 mt-4">
         <div class="card">
-            <img src="{{ photo.get_image_url }}" class="card-img-top" alt="...">
+            <img src="{{ photo.image.thumbnail.url }}" class="card-img-top" alt="...">
             <div class="card-body">
               <h6 class="card-title">Nome : {{ photo.name }}</h6>
               <small id="bio-text">{{ photo.description }}</small> <br>

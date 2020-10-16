@@ -4,29 +4,30 @@
 {% block titulo %} Galeria SurfMappers{% endblock %}
 
 {% block conteudo %}
-<div class="row mb-5">
+  <div class="row">
     <div class="col-md-12">
-    <h2 id="galery_title">🖥 Gerenciamento da galeria 🖥 </h2>
+    <h2 id="galery_title"> Gerenciamento da galeria  </h2>
     <hr>
     <div class="row">
-
     {% for photo in photos %}
     <div class="col-md-3 mt-4">
         <div class="card">
-            <img src="{{ photo.get_image_url }}" class="card-img-top" alt="...">
+            <img src="{{ photo.image.thumbnail.url }}" class="card-img-top" alt="Foto">
             <div class="card-body">
               <h6 class="card-title">Nome : {{ photo.name }}</h6>
               <small id="bio-text">{{ photo.description }}</small> <br>
               <small>Data : {{ photo.image_date }}</small>
             </div>
-            <span>{{ form }}</span>
+            <a class="btn btn-default m-2" href="{% url 'core:approval_image' photo.pk %}">
+              Clique aqui para aprovar a foto </a>
           </div>
     </div>
     {% endfor %}
 
+    <span class="mb-3">&nbsp;</span> <!-- fast solution, to responsive layout..-->
     </div> <!-- ./ second row..-->
+
 
 </div> <!-- ./col-md-12 -->
 </div> <!-- ./row -->
-
 {% endblock %}
