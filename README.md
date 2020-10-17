@@ -12,7 +12,7 @@ You have a couple of friends who are getting married soon and they asked to play
 5. - [ ] Photos must be stored on AWS S3.
 
 🎯 The project needs to be developed in python using any framework of your choice. 🎯
-# Deploy
+## Deploy
 https://surfmappers.herokuapp.com/
 
 ## How to Install 
@@ -24,8 +24,5 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-## Run the test
-
-```sh
-python pytest
-```
+## Illustrative Image of app
+![screencapture-surfmappers-herokuapp-gerenciamento-2020-10-16-20_53_54](https://user-images.githubusercontent.com/27506588/96323222-91598f00-0ff2-11eb-8cb9-b2b5eb6a2b10.png)
